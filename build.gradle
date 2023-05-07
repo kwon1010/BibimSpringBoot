@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.6'
+    id 'io.spring.dependency-management' version '1.1.0'
+    //밑에 두개는 springboot를 위해 꼭 필요함
+
+}
+
+group = 'com.springboot'
+version = '0.0.1-SNAPSHOT' //프로젝트 폴더로 배포를 할수 없으니. jar파일등의 배포할때의 버전
+sourceCompatibility = '17' //자바버전 17
+
+repositories {
+
+    mavenCentral()  //라이브러리 저장소
+}
+
+dependencies {
+    //사용하는 라이브러리들
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    //testImplementation과 연관. junit을 통해 테스트를 진행
+    useJUnitPlatform()
+}
